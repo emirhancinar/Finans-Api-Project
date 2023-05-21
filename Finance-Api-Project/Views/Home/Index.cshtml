@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model MainModel
+
+
+
+
+<form method="post" asp-action="Index" >
+    <div>
+        <select asp-for="selectedItems.currentFrom" >
+            <option value="try">TRY</option>
+            <option value="eur">EUR</option>
+            <option value="usd">USD</option>
+        </select>
+
+
+        <select asp-for="selectedItems.currentTo">
+            <option value="try">TRY</option>
+            <option value="eur">EUR</option>
+            <option value="usd">USD</option>
+        </select>
+    </div>
+
+    <button type="submit">Dönüştür</button>
+</form>
+
+<div>
+    @if (Model.exchange != null)
+    {
+            <h1>@Model.exchange.info.rate</h1>
+    }
+</div>
